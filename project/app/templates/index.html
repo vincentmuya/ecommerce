@@ -1,4 +1,4 @@
-{%extends 'base.html'%} {%load staticfiles%} {%block content%} {% load bootstrap3 %}
+{%extends 'base.html'%} {%load staticfiles%} {%block content%} {% load bootstrap3 %} {{ block.super}}
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +13,16 @@
   <body>
     {%include 'nav.html'%}
 <h1>walah</h1>
+    {%for product_item in product%}
+    <img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/>
+    <p>{{product_item.item_name}}</p>
+    <p>{{product_item.item_description}}</p>
+    {%endfor%}
   </body>
 </html>
 <style media="screen">
   h1{
-    color: purple;
+    color: cyan;
   }
 </style>
   {%endblock%}

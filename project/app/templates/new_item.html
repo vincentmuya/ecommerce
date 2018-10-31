@@ -1,0 +1,27 @@
+{%extends 'base.html'%} {% load bootstrap3 %} {% load staticfiles %} {%block content%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Item</title>
+  {{form.media}}
+
+
+<style media="screen">
+
+</style>
+</head>
+<body>
+  <div class="container">
+  <form  action="{%url 'new-item'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+  </div>
+</body>
+</html>
+{% endblock %}

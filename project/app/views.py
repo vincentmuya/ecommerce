@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-from .models import Item
+from .models import Item,Category
 from .forms import NewItemForm
 from django.contrib.auth.decorators import login_required
 
@@ -18,6 +18,9 @@ def new_item(request):
             item = form.save(commit=False)
             item.seller = current_user
             item.save()
+            # category = Category.objects.create(title=title)
+            # item.category.add(category)
+            # item.save_m2m()
     else:
         form =NewItemForm()
     return render (request, 'new_item.html', {"form":form})

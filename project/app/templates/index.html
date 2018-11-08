@@ -19,7 +19,7 @@
       <div class="col-md-8">
 <h1>Working</h1>
     {%for product_item in product%}
-    <img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/>
+    <a href="{%url 'item_details' pk=item.pk%}"><img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/></a>
     <p>Item Name: {{product_item.item_name}}</p>
     <p>Item Description: {{product_item.item_description}}</p>
     <p>Item Seller: {{product_item.seller}}</p>

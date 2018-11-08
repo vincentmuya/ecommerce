@@ -29,6 +29,7 @@ class Item(models.Model):
         funiture = cls.objects.filter(category__pk=7)
         return funiture
 
-    def search(cls):
+    @classmethod
+    def search_by_item_name(cls,search_term):
         search_result = cls.objects.filter(item_name__icontains=search_term)
         return search_result

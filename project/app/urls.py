@@ -6,7 +6,7 @@ from . import views
 urlpatterns=[
     url(r'^$',views.index,name ='index'),
     url(r'^new/item$', views.new_item, name='new-item'),
-    url(r'^search/', views.search_result, name='search_result')
+    url(r'^search/', views.search_results, name='search_results'),
 ]
 
 if settings.DEBUG:

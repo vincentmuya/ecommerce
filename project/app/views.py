@@ -23,9 +23,12 @@ def new_item(request):
         form =NewItemForm()
     return render (request, 'new_item.html', {"form":form})
 
-def search_result(request):
-    if "item_name" in request.GET and request.GET["item_name"]:
+def search_results(request):
+    if 'item_name' in request.GET and request.GET["item_name"]:
         search_term = request.GET.get("item_name")
         searched_ref = Item.search_by_item_name(search_term)
         message = f"{search_term}"
-        return render(requet, "search.html",{"message":message,"item_name":searched_ref})
+        return render(request, "search.html",{"message":message,"item_name":searched_ref})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})

@@ -8,12 +8,13 @@ from django.utils import timezone
 # Create your views here.
 def index(request):
     product = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[::-1]
-    # clothes = Item.objects.filter(category__pk=6)
-    return render(request, 'index.html',{"product":product})
+    item_categories = Category.objects.all()
+    clothes = Item.objects.filter(category__pk=5)
+    return render(request, 'index.html',{"product":product, "item_categories":item_categories ,"clothes":clothes})
 
-# def item_details(request, pk):
-#     item = get_object_or_404(Item, pk=pk)
-#     return render(request, 'item_details.html',{"item":item})
+def item_detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    return render(request, 'item_details.html',{"item":item})
 
 @login_required(login_url='/accounts/login')
 def new_item(request):
@@ -37,3 +38,7 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+# def category_items(request, pk):
+#     cat_item = Item.objects.filter(category__pk=category_id)
+#     return render(request, "category.html",{"cat_item":cat_item})

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
-import datetime as dt
+from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
@@ -16,14 +16,20 @@ class Item(models.Model):
     item_price = models.IntegerField(null=True)
     item_image = models.ImageField(upload_to="posts/",blank = True, null = True)
     item_description = models.TextField(max_length = 1000)
-    pub_date = models.DateTimeField(auto_now_add = True, null = True)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
     def __str__(self):
         return self.item_name
 
-    @classmethod
-    def all_items(cls):
-        product = cls.objects()
-        return product
+    # @classmethod
+    # def all_items(cls):
+    #     product = cls.objects()
+    #     return product
 
     def item_cat(cls):
         funiture = cls.objects.filter(category__pk=7)

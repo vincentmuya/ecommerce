@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http  import HttpResponse
 from .models import Item,Category
 from .forms import NewItemForm
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 # Create your views here.
 def index(request):
-    product = Item.objects.all
-    clothes = Item.objects.filter(category__pk=6)
-    return render(request, 'index.html',{"product":product, "clothes":clothes})
+    product = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[::-1]
+    # clothes = Item.objects.filter(category__pk=6)
+    return render(request, 'index.html',{"product":product})
+
+# def item_details(request, pk):
+#     item = get_object_or_404(Item, pk=pk)
+#     return render(request, 'item_details.html',{"item":item})
 
 @login_required(login_url='/accounts/login')
 def new_item(request):

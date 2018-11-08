@@ -12,7 +12,12 @@
 </head>
   <body>
     {%include 'nav.html'%}
-<h1>walah</h1>
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8">
+<h1>Working</h1>
     {%for product_item in product%}
     <img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/>
     <p>Item Name: {{product_item.item_name}}</p>
@@ -21,6 +26,15 @@
     <p>Item Price: {{product_item.item_price}}</p>
     <p>Item Category: {{product_item.category}}</p>
     {%endfor%}
+    {%for clothes_item in clothes%}
+    <p>{{clothes_item.item_name}}</p>
+    <img src= "{{ clothes_item.item_image.url}}" width="100px"  height=100px/>
+    {%endfor%}
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
   </body>
 </html>
 <style media="screen">

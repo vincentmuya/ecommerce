@@ -17,7 +17,6 @@ class Item(models.Model):
     item_image = models.ImageField(upload_to="posts/",blank = True, null = True)
     item_description = models.TextField(max_length = 1000)
     pub_date = models.DateTimeField(auto_now_add = True, null = True)
-
     def __str__(self):
         return self.item_name
 
@@ -25,3 +24,11 @@ class Item(models.Model):
     def all_items(cls):
         product = cls.objects()
         return product
+
+    def item_cat(cls):
+        funiture = cls.objects.filter(category__pk=7)
+        return funiture
+
+    def search(cls):
+        search_result = cls.objects.filter(item_name__icontains=search_term)
+        return search_result

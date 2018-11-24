@@ -8,7 +8,7 @@ urlpatterns=[
     url(r'^new/item$', views.new_item, name='new-item'),
     url(r'^search/', views.search_results, name='search_results'),
     url('item/<int:pk>/', views.item_detail, name='item_detail'),
-    # url('category/<int:pk>/', views.category_items, name='category_items')
+    url(r'^category/(?P<pk>\d+)/$', views.category_items, name='category_items'),
 ]
 
 if settings.DEBUG:

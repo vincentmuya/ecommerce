@@ -39,6 +39,6 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
-# def category_items(request, pk):
-#     cat_item = Item.objects.filter(category__pk=category_id)
-#     return render(request, "category.html",{"cat_item":cat_item})
+def category_items(request, pk):
+    cat_item = Item.objects.filter(category__pk=pk)
+    return render(request, "category.html",{"cat_item":cat_item})

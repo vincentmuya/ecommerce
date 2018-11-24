@@ -22,6 +22,8 @@
 <hr>
     {%for category_item in cat_item%}
     <p>{{category_item.item_name}}</p>
+    <img src= "{{ category_item.item_image.url}}" width="100px"  height=100px/>
+    <p>{{category_item.category}}</p>
     {%endfor%}
 
     </div>

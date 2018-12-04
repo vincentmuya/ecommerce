@@ -30,33 +30,3 @@ class Item(models.Model):
     def search_by_item_name(cls,search_term):
         search_result = cls.objects.filter(item_name__icontains=search_term)
         return search_result
-
-class ShoppingCart(object):
-
-    def __init__(self):
-        self.total = 0
-        self.items = {}
-
-    def add_item(self,item_name,quantity,item_price):
-      self.items[item_name] = quantity
-      self.total += item_price*quantity
-
-    def remove_item(self,item_name,quantity,item_price):
-      if quantity < self.items[item_name] and quantity >= 0:
-          self.total -= item_price*quantity
-          self.items[item_name] -= quantity
-      elif quantity >= self.items[item_name] :
-          del self.items[item_name]
-
-    def checkout(self,cash_paid):
-      if cash_paid >= self.total:
-          return cash_paid - self.total
-      else:
-          return "Cash paid not enough"
-
-class Shop(ShoppingCart):
-  def __init__(self):
-      self.quantity = 100
-
-  def remove_item(self):
-      self.quantity -= 1

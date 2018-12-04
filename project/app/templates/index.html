@@ -17,7 +17,7 @@
       <div class="col-md-2">
         <h2>Categories:</h2>
         {%for category_item in item_categories%}
-        <p><a href="">{{category_item.categories}}</a></p>
+        <p><a href="{% url 'index' %}">{{category_item.categories}}</a></p>
         <!-- <img src= "{{ clothes_item.item_image.url}}" width="100px"  height=100px/> -->
         {%endfor%}
       </div>

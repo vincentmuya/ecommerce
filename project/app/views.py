@@ -9,8 +9,7 @@ from django.utils import timezone
 def index(request):
     product = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[::-1]
     item_categories = Category.objects.all()
-    clothes = Item.objects.filter(category__pk=5)
-    return render(request, 'index.html',{"product":product, "item_categories":item_categories ,"clothes":clothes})
+    return render(request, 'index.html',{"product":product, "item_categories":item_categories })
 
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)

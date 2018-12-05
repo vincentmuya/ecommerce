@@ -24,10 +24,10 @@
 <form class="navbar-form navbar-left" role="search" action="{% url 'search_results' %}">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Search" name="item_name">
-<div class="input-group-btn">
-<button class="btn btn-primary" >Search</button>
-</div>
 </form>
+<div class="input-group-btn">
+  <button class="btn btn-primary" >Search</button>
+</div>
 <hr>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 <!-- Indicators -->
@@ -73,8 +73,8 @@
     <p>Published Date: {{ product_item.published_date }}</p>
     <p>Item Category: {{product_item.category}}</p> -->
 
-    <div class="card" id="block" style="width: 20rem;">
-      <img class="card-img-top" src="{{ product_item.item_image.url}}" alt="Card image cap">
+    <div class="card" id="block" style="width: 18rem;">
+      <a href="item/{{product_item.pk}}"><img class="card-img-top" src="{{ product_item.item_image.url}}" alt="Card image cap"></a>
       <div class="card-body">
         <h5 class="card-title">{{product_item.item_name}}</h5>
         <p class="card-text">Ksh {{product_item.item_price}}/=</p>
@@ -100,9 +100,12 @@
   width: 100px;
   float: left;
 }
+.card{
+  padding: 15px;
+}
 .card-img-top{
   height: 100px;
-  width: 200px;
+  width: 150px;
 }
 
 .card:hover {

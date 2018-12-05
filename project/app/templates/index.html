@@ -14,11 +14,10 @@
     {%include 'nav.html'%}
     <div class="container">
     <div class="row">
-      <div class="col-md-2">
-        <h2>Categories:</h2>
+      <div class="col-md-1">
+        <h5>Categories:</h5>
         {%for category_item in item_categories%}
         <p><a href="category/{{category_item.pk}}">{{category_item.categories}}</a></p>
-        <!-- <img src= "{{ clothes_item.item_image.url}}" width="100px"  height=100px/> -->
         {%endfor%}
       </div>
       <div class="col-md-8">
@@ -64,13 +63,22 @@
 </a>
 </div>
     {%for product_item in product%}
-    <a href="item/{{product_item.pk}}"><img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/></a>
+
+    <!-- <a href="item/{{product_item.pk}}"><img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/></a>
     <p>Item Name: {{product_item.item_name}}</p>
     <p>Item Description: {{product_item.item_description}}</p>
     <p>Item Seller: {{product_item.seller}}</p>
     <p>Item Price: {{product_item.item_price}}</p>
     <p>Published Date: {{ product_item.published_date }}</p>
-    <p>Item Category: {{product_item.category}}</p>
+    <p>Item Category: {{product_item.category}}</p> -->
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="{{ product_item.item_image.url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product_item.item_name}}</h5>
+        <p class="card-text">Ksh {{product_item.item_price}}/=</p>
+      </div>
+    </div>
+    <br>
     {%endfor%}
 
     </div>
@@ -82,5 +90,13 @@
   </body>
 </html>
 <style media="screen">
+.card-img-top{
+  height: 100px;
+  width: 200px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 </style>
   {%endblock%}

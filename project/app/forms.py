@@ -11,7 +11,7 @@ class NewItemForm(forms.ModelForm):
     # choices=categories)
     class Meta:
         model = Item
-        exclude = ['seller', 'created_date']
+        exclude = ['seller', 'created_date', 'published_date']
         widgets = {
             # 'level': forms.CheckboxSelectMultiple(),
         }

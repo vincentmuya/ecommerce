@@ -64,15 +64,6 @@
 </div>
 <div class="row" id="row">
     {%for product_item in product%}
-
-    <!-- <a href="item/{{product_item.pk}}"><img src= "{{ product_item.item_image.url}}" width="100px"  height=100px/></a>
-    <p>Item Name: {{product_item.item_name}}</p>
-    <p>Item Description: {{product_item.item_description}}</p>
-    <p>Item Seller: {{product_item.seller}}</p>
-    <p>Item Price: {{product_item.item_price}}</p>
-    <p>Published Date: {{ product_item.published_date }}</p>
-    <p>Item Category: {{product_item.category}}</p> -->
-
     <div class="card" id="block" style="width: 18rem;">
       <a href="item/{{product_item.pk}}"><img class="card-img-top" src="{{ product_item.item_image.url}}" alt="Card image cap"></a>
       <div class="card-body">

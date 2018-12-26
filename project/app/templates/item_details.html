@@ -23,12 +23,11 @@
    <div class="panel-heading"><strong>{{item.item_name}} details</strong></div>
    <div class="card" style="width: 55rem;">
    <img class="img-details" src="{{ item.item_image.url}}" alt="Card image cap">
-   <hr>
      <div class="card-body">
-       <h1 class="card-title">UserName: <strong>{{item.item_name}}</strong></h1>
-       <h2 class="card-text">Price: Ksh <strong>{{item.item_price}}/=</strong></h2>
-       <h2 class="card-text">Description: <strong>{{item.item_description}}</strong></h2>
-       <h2 class="card-text">Posted: <strong>{{item.created_date}}</strong></h2>
+       <h3 class="card-title">Seller: <strong>{{item.item_name}}</strong></h3>
+       <h4 class="card-text">Price: <strong>Ksh{{item.item_price}}/=</strong></h4>
+       <h4 class="card-text">Description: <strong>{{item.item_description}}</strong></h4>
+       <h4 class="card-text">Posted: <strong>{{item.created_date}}</strong></h4>
      </div>
    </div>
  </div>
@@ -46,7 +45,7 @@
   width: 80%;
   padding-top: 10px;
   padding-left: 40px;
-  height: 500px;
+  height: 450px;
 }
 .card-body{
   align-items: center;
@@ -57,6 +56,9 @@
 }
 .panel-heading{
   text-align: center;
+}
+.card-title, .card-text{
+  padding-left: 40px;
 }
 </style>
   {%endblock%}

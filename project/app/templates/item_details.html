@@ -20,9 +20,10 @@
       <div class="col-md-8">
 
  <div class="panel panel-default">
-   <div class="panel-heading"><strong>Product Details</strong></div>
+   <div class="panel-heading"><strong>{{item.item_name}} details</strong></div>
    <div class="card" style="width: 55rem;">
    <img class="img-details" src="{{ item.item_image.url}}" alt="Card image cap">
+   <hr>
      <div class="card-body">
        <h1 class="card-title">UserName: <strong>{{item.item_name}}</strong></h1>
        <h2 class="card-text">Price: Ksh <strong>{{item.item_price}}/=</strong></h2>
@@ -42,12 +43,20 @@
 </html>
 <style media="screen">
 .img-details{
-  width: 100%;
-  height: 450px;
+  width: 80%;
+  padding-top: 10px;
+  padding-left: 40px;
+  height: 500px;
 }
 .card-body{
   align-items: center;
-  padding-left: 70px;
+}
+.panel-default {
+    border-color: #000;
+    width: 70%
+}
+.panel-heading{
+  text-align: center;
 }
 </style>
   {%endblock%}

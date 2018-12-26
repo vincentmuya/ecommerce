@@ -40,5 +40,6 @@ def search_results(request):
         return render(request, 'search.html',{"message":message})
 
 def category_items(request, pk):
+    item_categories = Category.objects.all()
     cat_item = Item.objects.filter(category__pk=pk)
-    return render(request, "category.html",{"cat_item":cat_item})
+    return render(request, "category.html",{"cat_item":cat_item, "item_categories":item_categories})

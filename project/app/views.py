@@ -12,8 +12,9 @@ def index(request):
     return render(request, 'index.html',{"product":product, "item_categories":item_categories })
 
 def item_detail(request, pk):
+    item_categories = Category.objects.all()
     item = get_object_or_404(Item, pk=pk)
-    return render(request, 'item_details.html',{"item":item})
+    return render(request, 'item_details.html',{"item":item, "item_categories":item_categories})
 
 @login_required(login_url='/accounts/login')
 def new_item(request):

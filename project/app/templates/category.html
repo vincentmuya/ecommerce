@@ -26,7 +26,7 @@
     {%for category_item in cat_item%}
     {{category_item.category_id}}
     <p>{{category_item.item_name}}</p>
-    <img src= "{{ category_item.item_image.url}}" width="100px"  height=100px/>
+    <a href="{%url 'index'%}item/{{category_item.pk}}"><img src= "{{ category_item.item_image.url}}" width="100px"  height=100px/></a>
     <p>{{category_item.category}}</p>
     {%endfor%}
 

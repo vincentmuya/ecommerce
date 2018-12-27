@@ -24,10 +24,13 @@
         <h1>Category</h1>
 <hr>
     {%for category_item in cat_item%}
-    {{category_item.category_id}}
-    <p>{{category_item.item_name}}</p>
-    <a href="{%url 'index'%}item/{{category_item.pk}}"><img src= "{{ category_item.item_image.url}}" width="100px"  height=100px/></a>
-    <p>{{category_item.category}}</p>
+    <div class="card" id="block" style="width: 18rem;">
+      <a href="item/{{category_item.pk}}"><img class="card-img-top" src="{{ category_item.item_image.url}}" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title">{{category_item.item_name}}</h5>
+        <p class="card-text">Ksh {{category_item.item_price}}/=</p>
+      </div>
+    </div>
     {%endfor%}
 
     </div>
@@ -39,6 +42,21 @@
   </body>
 </html>
 <style media="screen">
+#block {
+  width: 100px;
+  float: left;
+}
+.card{
+  padding: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card-img-top{
+  height: 150px;
+  width: 150px;
+}
 
+.card:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
 </style>
   {%endblock%}

@@ -30,14 +30,15 @@ def new_item(request):
     return render (request, 'new_item.html', {"form":form})
 
 def search_results(request):
+    item_categories = Category.objects.all()
     if 'item_name' in request.GET and request.GET["item_name"]:
         search_term = request.GET.get("item_name")
         searched_ref = Item.search_by_item_name(search_term)
         message = f"{search_term}"
-        return render(request, "search.html",{"message":message,"item_name":searched_ref})
+        return render(request, "search.html",{"message":message,"item_name":searched_ref, "item_categories":item_categories})
     else:
         message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
+        return render(request, 'search.html',{"message":message, "item_categories":item_categories})
 
 def category_items(request, pk):
     item_categories = Category.objects.all()

@@ -12,6 +12,8 @@
 </head>
   <body>
     {%include 'nav.html'%}
+    <div class="container">
+
     <div class="row">
       <div class="col-md-2">
 
@@ -22,29 +24,22 @@
         {% else %}
           <h2> Found 0 item_name for the search term {{message}}</h2>
         {% endif %}
-      </div>
+
 
       <!-- <div class="row"> -->
 
       {% if item_name %}
         {% for result in item_name%}
-        <div class="card" >
-      <div class="card-header">
-        <strong><h2>Items Found</h2></strong>
-    </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Seller</strong> :{{result.seller}}</li>
-        <li class="list-group-item"><strong>Item Name</strong> :{{result.item_name}}</li>
-        <li class="list-group-item"><strong>Category</strong> :{{result.category}}</li>
-        <li class="list-group-item"><strong>Item Price</strong> :{{result.item_price}}</li>
-        <li class="list-group-item"><strong>item image</strong> :<img src= "{{ result.item_image.url}}" width="100px"  height=100px/></li>
-        <li class="list-group-item"><strong>item_description</strong> :{{result.item_description}}</li>
-      </ul>
-
+      <div class="card" id="block" style="width: 18rem;">
+        <a href="{%url 'index'%}item/{{result.pk}}"><img class="card-img-top" src="{{ result.item_image.url}}" alt="Card image cap"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{result.item_name}}</h5>
+          <p class="card-text">Ksh {{result.item_price}}/=</p>
+        </div>
       </div>
         {% endfor %}
       {% endif %}
-
+</div>
     </div>
     <div class="col-md-2">
 
@@ -53,6 +48,21 @@
   </body>
 </html>
 <style media="screen">
+#block {
+  width: 100px;
+  float: left;
+}
+.card{
+  padding: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card-img-top{
+  height: 150px;
+  width: 150px;
+}
 
+.card:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
 </style>
   {%endblock%}

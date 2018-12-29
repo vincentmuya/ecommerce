@@ -37,7 +37,7 @@ class Item(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to="posts/",blank = True, null = True)
+    profile_image = models.ImageField(upload_to="profile_pic/",blank = True, null = True)
     seller_number = models.IntegerField(null= True)
     seller_location = models.CharField(null = True,max_length= 100)
 

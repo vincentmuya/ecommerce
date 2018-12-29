@@ -50,9 +50,9 @@ def category_items(request, pk):
 def profile(request, user_id):
     profile = Profile.objects.filter(user_id=request.user.id)
     print(profile)
-    posts  = Item.objects.filter(user_id=user_id)
+    # posts  = Item.objects.filter(user_id=user_id)
 
-    return render(request, "profile.html", {"profile": profile, "posts": posts})
+    return render(request, "profile.html", {"profile": profile})
 
 @login_required
 @transaction.atomic

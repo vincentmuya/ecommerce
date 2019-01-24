@@ -5,6 +5,7 @@ from .forms import NewItemForm,UserForm,ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db import transaction
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
@@ -27,7 +28,7 @@ def new_item(request):
     #         item.seller = current_user
     #         item.save()
     # else:
-        form =NewItemForm()
+    form =NewItemForm()
     return render (request, 'new_item.html', {"form":form})
 
 def newitem(request):
@@ -44,7 +45,7 @@ def newitem(request):
         data = {'success': 'Your item has been posted'}
         return JsonResponse(data)
 
-def search_results(request)
+def search_results(request):
     item_categories = Category.objects.all()
     if 'item_name' in request.GET and request.GET["item_name"]:
         search_term = request.GET.get("item_name")

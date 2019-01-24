@@ -25,3 +25,6 @@
 </body>
 </html>
 {% endblock %}
+{% block scripts %} {{block.super}}
+  <script type="text/javascript" src="{%static 'js/new_item.js'%}"></script>
+{% endblock %}

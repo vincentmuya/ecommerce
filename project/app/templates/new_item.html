@@ -9,10 +9,8 @@
   {{form.media}}
 
 
-<style media="screen">
-
-</style>
 </head>
+{%include 'nav.html'%}
 <body>
   <div class="container">
   <form  action="{%url 'new-item'%}" method="post" enctype="multipart/form-data">
@@ -24,6 +22,11 @@
   </div>
 </body>
 </html>
+<style media="screen">
+  body{
+    magin-top: 5%;
+  }
+</style>
 {% endblock %}
 {% block scripts %} {{block.super}}
   <script type="text/javascript" src="{%static 'js/new_item.js'%}"></script>

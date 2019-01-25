@@ -35,12 +35,12 @@ def newitem(request):
         seller_number = request.POST.get('seller_number')
         seller_location = request.POST.get('seller_location')
         item_name = request.POST.get('item_name')
-        category = request.POST.get('category')
+        category = request.POST.get('Category')
         item_price = request.POST.get('item_price')
         item_image = request.POST.get('item_image')
         item_description = request.POST.get('item_description')
 
-        recipient=NewItemRecipient(seller_number=seller_number, seller_location=seller_location, item_name=item_name, category=category, item_price=item_price, item_image=item_image, item_description=item_description)
+        recipient=Item(seller_number=seller_number, seller_location=seller_location, item_name=item_name, category=category, item_price=item_price, item_image=item_image, item_description=item_description)
         recipient.save()
         data = {'success': 'Your item has been posted'}
         return JsonResponse(data)

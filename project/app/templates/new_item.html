@@ -3,6 +3,8 @@
 <html>
 
 <head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>New Item</title>
@@ -13,12 +15,20 @@
 {%include 'nav.html'%}
 <body>
   <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
   <form  action="{%url 'new-item'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
     <input type="submit" class="btn btn-success btn-lg" value="Post">
   </form>
+</div>
+  <div class="col-md-2">
+  </div>
+</div>
   </div>
 </body>
 </html>

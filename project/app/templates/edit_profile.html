@@ -1,0 +1,12 @@
+<div class="card" style="width: 50rem;">
+  <div class="card-header">
+    <h1>Edit Profile</h1>
+  </div>
+  <ul class="list-group list-group-flush">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <li class="list-group-item">{{ user_form.as_p }}</li>
+      <li class="list-group-item">{{ profile_form.as_p }}</li>
+      <button type="submit" class="btn btn-info">Save changes</button>
+    </form>
+</div>

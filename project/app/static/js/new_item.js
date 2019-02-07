@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("#id_category").val('')
     $("#id_item_price").val('')
     $("#id_item_image").val('')
-    $("#id_item_description").val('')
+    $("#id_email").val('')
   }) // End of submit event
-
+    
 }) // End of document ready function

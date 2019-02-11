@@ -22,8 +22,99 @@
   <body>
 
     {%block content %}
-    {%endblock%}
+    <div  id="sidenav">
+    <h5>Categories:</h5>
+    {%for category_item in item_categories%}
+    <p><a href="{%url 'index'%}category/{{category_item.pk}}">{{category_item.categories}}</a></p>
+    {%endfor%}
+  </div>
 
+    <div id="sidebar">
+      {% if user.is_authenticated %}
+<ul class="" role="menu">
+<li>
+  <a href="{%url 'index'%}">Home</a>
+</li>
+<li>
+  <a href="{%url 'profile' user.id%}">Profile</a>
+</li>
+<li>
+  <a href="{%url 'new-item' %}">Post</a>
+</li>
+<li>
+  <a href="{%url 'update-profile' user.id%}">Edit Profile</a>
+</li>
+<li>
+  <a href="/accounts/password/change">Change Password</a>
+</li>
+<li>
+  <a href="/logout">Logout</a>
+</li>
+</ul>
+</li>
+
+      {% else %}
+      <li>
+        <a  href="/accounts/login">Login</a>
+      </li>
+      <li>
+        <a  href="/accounts/register">sign up</a>
+      </li>
+
+      {% endif %}
+    </div>
+    {%endblock%}
+<style media="screen">
+#sidenav {
+  margin-top: 40px;
+  height: 100%;
+  width: 170px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+#sidenav a {
+  padding: 3px 5px 3px 13px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+#sidenav a:hover {
+  color: #f1f1f1;
+}
+#sidebar {
+  width: 170px;
+  position: fixed;
+  z-index: 1;
+  margin-top: 0px;
+  left: 1150px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+#sidebar a {
+  padding: 3px 5px 3px 13px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #2196F3;
+  display: block;
+}
+
+#sidebar a:hover {
+  color: #064579;
+}
+li{
+  list-style: none;
+}
+</style>
 
     {% block scripts %}
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

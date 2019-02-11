@@ -22,15 +22,7 @@
         {%endfor%}
       </div>
       </div>
-      <div class="col-md-9">
-<form class="navbar-form" role="search" action="{% url 'search_results' %}">
-<div class="input-group">
-<input type="text" class="form-control" placeholder="Search" name="item_name">
-<div class="input-group-btn">
-  <button class="btn btn-primary" id="search" >Search</button>
-</div>
-</div></form>
-<hr>
+      <div class="col-md-10">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 <!-- Indicators -->
 <ol class="carousel-indicators">
@@ -77,41 +69,8 @@
   </div>
 
     </div>
-    <div class="col-md-2">
-    <div id="sidebar">
-      {% if user.is_authenticated %}
-<ul class="" role="menu">
-<li>
-  <a href="{%url 'index'%}">Home</a>
-</li>
-<li>
-  <a href="{%url 'profile' user.id%}">Profile</a>
-</li>
-<li>
-  <a href="{%url 'new-item' %}">Post</a>
-</li>
-<li>
-  <a href="{%url 'update-profile' user.id%}">Edit Profile</a>
-</li>
-<li>
-  <a href="/accounts/password/change">Change Password</a>
-</li>
-<li>
-  <a href="/logout">Logout</a>
-</li>
-</ul>
-</li>
+    <div class="col-md-1">
 
-      {% else %}
-      <li>
-        <a  href="/accounts/login">Login</a>
-      </li>
-      <li>
-        <a  href="/accounts/register">sign up</a>
-      </li>
-
-      {% endif %}
-    </div>
     </div>
   </div>
     </div>
@@ -153,28 +112,7 @@ body{
   width: 100px;
   float: left;
 }
-#sidebar {
-  width: 170px;
-  position: fixed;
-  z-index: 1;
-  margin-top: 10px;
-  left: 1150px;
-  background: #eee;
-  overflow-x: hidden;
-  padding: 8px 0;
-}
 
-#sidebar a {
-  padding: 3px 5px 3px 13px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #2196F3;
-  display: block;
-}
-
-#sidebar a:hover {
-  color: #064579;
-}
 
 .card{
   padding: 15px;

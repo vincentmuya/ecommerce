@@ -15,10 +15,7 @@
     <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <h5>Categories:</h5>
-        {%for category_item in item_categories%}
-        <p><a href="{%url 'index'%}category/{{category_item.pk}}">{{category_item.categories}}</a></p>
-        {%endfor%}
+
       </div>
       <div class="col-md-8">
         <h1>Category</h1>
@@ -57,6 +54,10 @@
 
 .card:hover {
     box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+body{
+  margin-top: 5%;
 }
 </style>
   {%endblock%}

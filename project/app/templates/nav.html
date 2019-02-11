@@ -30,45 +30,13 @@
         </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <div class="col-sm-6 col-md-6">
-            {% if user.is_authenticated %}
-            <ul>
-              <li class="dropdown">
-    <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Your Profile
-              <span class="caret"></span>
-          </a>
-    <ul class="dropdown-menu" role="menu">
-      <li>
-        <a href="{%url 'index'%}">Home</a>
-      </li>
-      <li>
-        <a href="{%url 'profile' user.id%}">Profile</a>
-      </li>
-      <li>
-        <a href="{%url 'new-item' %}">Post</a>
-      </li>
-      <li>
-        <a href="{%url 'update-profile' user.id%}">Edit Profile</a>
-      </li>
-      <li>
-        <a href="/accounts/password/change">Change Password</a>
-      </li>
-      <li>
-        <a href="/logout">Logout</a>
-      </li>
-    </ul>
-  </li>
-            </ul>
-            {% else %}
-            <li>
-              <a class='btn btn-default' href="/accounts/login">Login</a>
-            </li>
-            <li>
-              <a class='btn btn-default' href="/accounts/register">sign up</a>
-            </li>
-
-            {% endif %}
-          </div>
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+        <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="item_name">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" id="search" >Search</button>
+        </div>
+        </div></form>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

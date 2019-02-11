@@ -1,4 +1,4 @@
-{%extends 'base.html'%} {% load bootstrap3 %} {% block content %} {{ block.super}} {%load staticfiles%}
+{%extends 'base.html'%} {%load staticfiles%} {%block content%} {% load bootstrap3 %} {{ block.super}}
 <!DOCTYPE html>
 <html>
   {%block styles%} {% bootstrap_css %}
@@ -12,18 +12,22 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
   {%include 'nav.html'%}
 
   <body>
-    {%for profile_item in profile%}
 
     <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+          {%for profile_item in profile%}
       <h2>{{profile_item.user}}</h2>
-      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-      <!------ Include the above in your HEAD tag ---------->
 
       <div class="col-lg-15 col-sm-15">
         <div class="card hovercard">
@@ -80,14 +84,22 @@
         </div>
 
       </div>
-
       {%endfor%}
+      </div>
+      <div class="col-md-2">
+
+      </div>
+      </div>
+
 
 
   </body>
 
   </html>
   <style media="screen">
+  body{
+    margin-top: 5%;
+  }
     .card {
       margin-top: 20px;
       padding: 30px;

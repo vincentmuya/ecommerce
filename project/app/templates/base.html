@@ -23,7 +23,7 @@
 
     {%block content %}
     <div  id="sidenav">
-    <h5>Categories:</h5>
+    <h5 id="cat">Categories:</h5>
     {%for category_item in item_categories%}
     <p><a href="{%url 'index'%}category/{{category_item.pk}}">{{category_item.categories}}</a></p>
     {%endfor%}
@@ -113,6 +113,10 @@
 }
 li{
   list-style: none;
+}
+h5{
+  color: white;
+  font-size: 15px;
 }
 </style>
 

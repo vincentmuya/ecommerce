@@ -20,6 +20,7 @@ def item_detail(request, pk):
 
 @login_required(login_url='/accounts/login')
 def new_item(request):
+    item_categories = Category.objects.all()
     current_user = request.user
     # if request.method == 'POST':
     #     form = NewItemForm(request.POST,request.FILES)
@@ -29,7 +30,7 @@ def new_item(request):
     #         item.save()
     # else:
     form =NewItemForm()
-    return render (request, 'new_item.html', {"form":form})
+    return render (request, 'new_item.html', {"form":form, "item_categories":item_categories})
 
 def newitem(request):
         seller_number = request.POST.get('seller_number')
@@ -64,14 +65,15 @@ def category_items(request, pk):
 @login_required(login_url='/accounts/login')
 def profile(request, user_id):
     profile = Profile.objects.filter(user_id=request.user.id)
-    print(profile)
+    item_categories = Category.objects.all()
     # posts  = Item.objects.filter(user_id=user_id)
 
-    return render(request, "profile.html", {"profile": profile})
+    return render(request, "profile.html", {"profile": profile, "item_categories":item_categories})
 
 @login_required
 @transaction.atomic
 def update_profile(request, user_id):
+    item_categories = Category.objects.all()
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -85,5 +87,5 @@ def update_profile(request, user_id):
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, 'edit_profile.html', {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form, "item_categories":item_categories
     })

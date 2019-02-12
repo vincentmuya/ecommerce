@@ -15,12 +15,6 @@
     <div class="container">
     <div class="row">
       <div class="col-md-1">
-        <div  id="sidenav">
-        <h5>Categories:</h5>
-        {%for category_item in item_categories%}
-        <p><a href="category/{{category_item.pk}}">{{category_item.categories}}</a></p>
-        {%endfor%}
-      </div>
       </div>
       <div class="col-md-10">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -78,31 +72,11 @@
 </html>
 <style media="screen">
 body{
-  padding-top: 5%;
+  padding-top: 4%;
 }
-#sidenav {
-  margin-top: 40px;
-  height: 100%;
-  width: 170px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-#sidenav a {
-  padding: 3px 5px 3px 13px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #818181;
-  display: block;
-}
-
-#sidenav a:hover {
-  color: #f1f1f1;
+.carousel-inner>.item>img {
+    line-height: 1;
+    width: 100%;
 }
 #row {
   width: 100%;
@@ -123,7 +97,7 @@ body{
   width: 150px;
 }
 .card-title{
-color: black; 
+color: black;
 }
 .card:hover {
     box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);

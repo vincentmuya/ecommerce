@@ -19,8 +19,8 @@
       <ul class="list-group list-group-flush">
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          {% bootstrap_form user_form%}
           {% bootstrap_form profile_form%}
+          {% bootstrap_form user_form%}
           <button type="submit" class="btn btn-info">Save changes</button>
         </form>
     </div>

@@ -66,9 +66,10 @@ def category_items(request, pk):
 def profile(request, user_id):
     profile = Profile.objects.filter(user_id=request.user.id)
     item_categories = Category.objects.all()
-    # posts  = Item.objects.filter(user_id=user_id)
+    user_posts = Item.objects.filter(seller_id=request.user).order_by('created_date')[::-1]
 
-    return render(request, "profile.html", {"profile": profile, "item_categories":item_categories})
+
+    return render(request, "profile.html", {"profile": profile, "item_categories":item_categories, "user_posts":user_posts})
 
 @login_required
 @transaction.atomic

@@ -15,7 +15,7 @@ def index(request):
 
 def item_detail(request, pk):
     item_categories = Category.objects.all()
-    item = get_object_or_404(Item, pk=pk)
+    item = get_object_or_404(Item, pk=pk,seller_id=request.user)
     return render(request, 'item_details.html',{"item":item, "item_categories":item_categories})
 
 @login_required(login_url='/accounts/login')

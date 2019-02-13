@@ -30,25 +30,26 @@
   </div>
 
     <div id="sidebar">
+      <h4 span style="text-align:center;">Menu</h4>
       {% if user.is_authenticated %}
 <ul class="" role="menu">
 <li>
-  <a href="{%url 'index'%}">Home</a>
+  <a href="{%url 'index'%}"><span class="glyphicon glyphicon-home"></span> Home</a>
 </li>
 <li>
-  <a href="{%url 'profile' user.id%}">Profile</a>
+  <a href="{%url 'profile' user.id%}"><span class="glyphicon glyphicon-user"></span> Profile</a>
 </li>
 <li>
-  <a href="{%url 'new-item' %}">Post</a>
+  <a href="{%url 'new-item' %}"><span class="glyphicon glyphicon-plus"></span> Post</a>
 </li>
 <li>
-  <a href="{%url 'update-profile' user.id%}">Edit Profile</a>
+  <a href="{%url 'update-profile' user.id%}"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>
 </li>
 <li>
-  <a href="/accounts/password/change">Change Password</a>
+  <!-- <a href="/accounts/password/change">Change Password</a> -->
 </li>
 <li>
-  <a href="/logout">Logout</a>
+  <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 </li>
 </ul>
 </li>

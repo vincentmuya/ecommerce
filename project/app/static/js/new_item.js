@@ -1,24 +1,19 @@
-$(document).ready(function(){
-  $('form').submit(function(event){
-    event.preventDefault()
-    form = $("form")
 
-    $.ajax({
-      'url':'/ajax/newitem/',
-      'type':'POST',
-      'data':form.serialize(),
-      'dataType':'json',
-      'success': function(data){
-        alert(data['success'])
-      },
-    })// END of Ajax method
-    $('#id_seller_number').val('')
-    $("#id_seller_location").val('')
-    $("#id_item_name").val('')
-    $("#id_category").val('')
-    $("#id_item_price").val('')
-    $("#id_item_image").val('')
-    $("#id_email").val('')
-  }) // End of submit event
-    
-}) // End of document ready function
+$('#id_ajax_upload_form').submit(function(e){
+        e.preventDefault();
+        $form = $(this)
+        var formData = new NewItemForm(this);
+        $.ajax({
+            url: '/ajax/newitem/',
+            type: 'POST',
+            data: formData,
+            async: false,
+            success: function(data){
+              alert(data['success'])
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+    // end

@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" />
   <link href='https://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>New Item</title>
 </head>
 {%include 'nav.html'%}
@@ -21,7 +22,7 @@
       </div>
       <div class="col-md-8">
         <h1>Post An Item</h1>
-  <form  action="{%url 'new-item'%}" method="post" enctype="multipart/form-data">
+  <form  action="{%url 'new-item'%}" method="post" id="id_ajax_upload_form" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}

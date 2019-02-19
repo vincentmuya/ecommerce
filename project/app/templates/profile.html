@@ -33,14 +33,20 @@
         <div class="card hovercard">
           <div class="card-background">
 
-            <img class="card-bkimg" alt="" src="{{profile_item.profile_image.url}}">
-            <!-- <img class="card-bkimg" alt="" src="https://engrain.com/wp-content/uploads/2018/01/profile-placeholder.png"> -->
+            {% if profile_item.profile_image %}
+               <img src="{{ profile_item.profile_image.url }}">
+           {% else %}
+               <img src="https://engrain.com/wp-content/uploads/2018/01/profile-placeholder.png">
+           {% endif %}
           </div>
 
           <div class="useravatar">
 
-            <img alt="" src="{{profile_item.profile_image.url}}">
-            <!-- <img alt="" src="https://engrain.com/wp-content/uploads/2018/01/profile-placeholder.png"> -->
+            {% if profile_item.profile_image %}
+               <img src="{{ profile_item.profile_image.url }}">
+           {% else %}
+               <img src="https://engrain.com/wp-content/uploads/2018/01/profile-placeholder.png" >
+           {% endif %}
           </div>
 
           <div class="card-info"> <span class="card-title">{{profile_item.user}}</span>

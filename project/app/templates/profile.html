@@ -86,8 +86,8 @@
         </div>
 
       </div>
+      <h4>Items Posted By {{profile_item.user}}</h4>
       {%endfor%}
-      <h4>Posted Items</h4>
       {%for post_item in user_posts%}
       <div class="card" id="block" style="width: 18rem;">
         <a href="item/{{post_item.pk}}"><img class="card-img-top" src="{{ post_item.item_image.url}}" alt="Card image cap"></a>

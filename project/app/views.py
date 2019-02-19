@@ -22,14 +22,14 @@ def item_detail(request, pk):
 def new_item(request):
     item_categories = Category.objects.all()
     current_user = request.user
-    # if request.method == 'POST':
-    #     form = NewItemForm(request.POST,request.FILES)
-    #     if form.is_valid():
-    #         item = form.save(commit=False)
-    #         item.seller = current_user
-    #         item.save()
-    # else:
-    form =NewItemForm()
+    if request.method == 'POST':
+        form = NewItemForm(request.POST,request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.seller = current_user
+            item.save()
+    else:
+        form =NewItemForm()
     return render (request, 'new_item.html', {"form":form, "item_categories":item_categories})
 
 def newitem(request):

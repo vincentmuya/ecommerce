@@ -7,11 +7,8 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Category(models.Model):
-    name = models.CharField(max_length=200,
-                            db_index=True)
-    slug = models.SlugField(max_length=200,
-                            db_index=True,
-                            unique=True)
+    name = models.CharField(max_length=200,db_index=True, null = True)
+    slug = models.SlugField(max_length=200,db_index=True, unique=True, null = True)
 
     class Meta:
         ordering = ('name',)
@@ -23,9 +20,9 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products')
+    category = models.ForeignKey(Category, related_name='products', null = True)
     name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, null = True)
     image = models.ImageField(upload_to="posts/",blank = True, null = True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -49,8 +46,8 @@ class Product(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = models.ImageField(upload_to="profile_pic/",blank = True, null = True)
-    seller_number = models.IntegerField(blank = True )
-    seller_location = models.CharField(blank = True,max_length= 100)
+    seller_number = models.IntegerField(blank = True, null = True )
+    seller_location = models.CharField(blank = True,max_length= 100, null = True)
 
     def save_profile(self):
         self.save()

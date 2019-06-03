@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL ='/'
 
+CART_SESSION_ID = 'cart'
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http  import HttpResponse
-from .models import Item,Category,Profile
+from .models import Product,Category,Profile
 from .forms import NewItemForm,UserForm,ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -9,7 +9,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
-    product = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[::-1]
+    # product = Product.objects.all()[::-1]
     item_categories = Category.objects.all()
     return render(request, 'index.html',{"product":product, "item_categories":item_categories })
 

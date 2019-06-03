@@ -1,10 +1,10 @@
 from django import forms
-from .models import Item,User,Profile
+from .models import Product,User,Profile
 
 class NewItemForm(forms.ModelForm):
 
     class Meta:
-        model = Item
+        model = Product
         exclude = ['seller', 'created_date', 'published_date']
         widgets = {
         }

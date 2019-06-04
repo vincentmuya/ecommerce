@@ -8,15 +8,19 @@ from django.db import transaction
 from django.http import JsonResponse
 
 # Create your views here.
-def index(request):
+def product_list(request, category_slug=None):
     # product = Product.objects.all()[::-1]
-    item_categories = Category.objects.all()
-    return render(request, 'index.html',{"product":product, "item_categories":item_categories })
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'index.html',{"products":products, "categories":categories })
 
-def item_detail(request, pk):
-    item_categories = Category.objects.all()
-    item = get_object_or_404(Item, pk=pk)
-    return render(request, 'item_details.html',{"item":item, "item_categories":item_categories})
+def product_detail(request, id, slug):
+    product = get_object_or_404 (Product, id=id, slug=slug, available=True)
+    return render(request, 'item_details.html',{"product":product})
 
 @login_required(login_url='/accounts/login')
 def new_item(request):

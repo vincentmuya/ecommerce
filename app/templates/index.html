@@ -15,6 +15,7 @@
     <div class="container">
     <div class="row">
       <div class="col-md-1">
+        
       </div>
       <div class="col-md-10" id="middle">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -51,12 +52,13 @@
 </a>
 </div>
 <div class="row" id="row">
-    {%for product_item in product%}
+   <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+    {%for product in products %}
     <div class="card" id="block" style="width: 18.9rem;">
-      <a href="item/{{product_item.pk}}"><img class="card-img-top" src="{{ product_item.item_image.url}}" alt="Card image cap"></a>
+      <a href="{{ product.get_absolute_url }}"><img class="card-img-top" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Card image cap"></a>
       <div class="card-body">
-        <h5 class="card-title">{{product_item.item_name}}</h5>
-        <p class="card-text">Ksh {{product_item.item_price}}/=</p>
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">Ksh {{ product.price }}/=</p>
       </div>
     </div>
     {%endfor%}

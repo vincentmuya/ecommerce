@@ -20,7 +20,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('app:product_list_by_category',args=[self.slug])
+        return reverse('product_list_by_category',args=[self.slug])
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', null = True)
@@ -42,7 +42,7 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('app:product_detail', args=[self.id, self.slug])
+        return reverse('product_detail', args=[self.id, self.slug])
 
     @classmethod
     def search_by_name(cls,search_term):

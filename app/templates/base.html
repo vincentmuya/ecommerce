@@ -25,11 +25,7 @@
   <div id="content">
 
     {%block content %}
-    <div id="sidenav">
-      <h5 id="cat">Categories:</h5>
-
-      <p><a href=""></a></p>
-    </div>
+    
 
     <div id="sidebar">
       <h4 span style="text-align:center;">Menu</h4> {% if user.is_authenticated %}
@@ -68,12 +64,70 @@
       {% endif %}
     </div>
     {%endblock%}
-    </div>
-    <style media="screen">
+  </div>
+  <style media="screen">
+    #sidenav {
+      margin-top: 40px;
+      height: 100%;
+      width: 202px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    #sidenav a {
+      padding: 3px 5px 3px 13px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #818181;
+      display: block;
+    }
+
+    #sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    #sidebar {
+      width: 170px;
+      position: fixed;
+      z-index: 1;
+      margin-top: 0px;
+      left: 1150px;
+      background: #eee;
+      overflow-x: hidden;
+      padding: 8px 0;
+    }
+
+    #sidebar a {
+      padding: 3px 5px 3px 13px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #2196F3;
+      display: block;
+    }
+
+    #sidebar a:hover {
+      color: #064579;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    h5 {
+      color: white;
+      font-size: 15px;
+    }
+
+    @media screen and (max-width:650px) {
       #sidenav {
         margin-top: 40px;
         height: 100%;
-        width: 202px;
+        width: 98px;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -82,70 +136,12 @@
         overflow-x: hidden;
         padding-top: 20px;
       }
+    }
+  </style>
 
-      #sidenav a {
-        padding: 3px 5px 3px 13px;
-        text-decoration: none;
-        font-size: 15px;
-        color: #818181;
-        display: block;
-      }
-
-      #sidenav a:hover {
-        color: #f1f1f1;
-      }
-
-      #sidebar {
-        width: 170px;
-        position: fixed;
-        z-index: 1;
-        margin-top: 0px;
-        left: 1150px;
-        background: #eee;
-        overflow-x: hidden;
-        padding: 8px 0;
-      }
-
-      #sidebar a {
-        padding: 3px 5px 3px 13px;
-        text-decoration: none;
-        font-size: 15px;
-        color: #2196F3;
-        display: block;
-      }
-
-      #sidebar a:hover {
-        color: #064579;
-      }
-
-      li {
-        list-style: none;
-      }
-
-      h5 {
-        color: white;
-        font-size: 15px;
-      }
-
-      @media screen and (max-width:650px) {
-        #sidenav {
-          margin-top: 40px;
-          height: 100%;
-          width: 98px;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-color: #111;
-          overflow-x: hidden;
-          padding-top: 20px;
-        }
-      }
-    </style>
-
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %} {% endblock %}
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
 </body>
 
 </html>

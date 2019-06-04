@@ -4,6 +4,7 @@ from tinymce.models import HTMLField
 from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Category(models.Model):
@@ -18,6 +19,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('app:product_list_by_category',args=[self.slug])
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', null = True)
@@ -37,6 +40,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('app:product_detail', args=[self.id, self.slug])
 
     @classmethod
     def search_by_name(cls,search_term):

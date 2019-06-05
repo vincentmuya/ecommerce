@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db import transaction
 from django.http import JsonResponse
+from cart.forms import CartAddProductForm
 
 # Create your views here.
 def product_list(request, category_slug=None):
@@ -19,7 +20,8 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, id, slug):
     product = get_object_or_404 (Product, id=id, slug=slug, available=True)
-    return render(request, 'item_details.html',{"product":product})
+    cart_product_form = CartAddProductForm()
+    return render(request, 'item_details.html',{"product":product,'cart_product_form': cart_product_form})
 
 @login_required(login_url='/accounts/login')
 def new_item(request):

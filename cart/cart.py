@@ -9,7 +9,7 @@ class Cart(object):
         initialize the cart.
         """
         self.session = request.session
-        cart = self.session.get(setting.CART_SESSION_ID)
+        cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
             #save an empty cart in the session
             cart = self.session[settings.CART_SESSION_ID]= {}
@@ -34,7 +34,7 @@ class Cart(object):
         #mark the session as "modified" to make sure its saved
         self.session.modifed = True
 
-    def remove(self.product):
+    def remove(self, product):
         """
         Remove a product from the cart
         """

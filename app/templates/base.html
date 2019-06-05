@@ -33,6 +33,9 @@
       <h4 span style="text-align:center;">Menu</h4>
       {% if user.is_authenticated %}
 <ul class="" role="menu">
+  <li><div id="subheader">
+    <div class="cart"> Your cart is empty.</div>
+</div></li>
 <li>
   <a href="{%url 'product_list'%}"><span class="glyphicon glyphicon-home"></span> Home</a>
 </li>

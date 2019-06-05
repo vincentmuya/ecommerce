@@ -37,6 +37,7 @@ CART_SESSION_ID = 'cart'
 
 INSTALLED_APPS = [
     'app',
+    'cart',
     'googlemaps',
     'tinymce',
     'bootstrap3',

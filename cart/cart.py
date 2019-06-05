@@ -33,3 +33,12 @@ class Cart(object):
         self.session[settings.CART_SESSION_ID] = self.cart
         #mark the session as "modified" to make sure its saved
         self.session.modifed = True
+
+    def remove(self.product):
+        """
+        Remove a product from the cart
+        """
+        product_id = str(product.id)
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()

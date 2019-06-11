@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 # Create your models here.
 class Category(models.Model):
@@ -23,7 +23,7 @@ class Category(models.Model):
         return reverse('product_list_by_category',args=[self.slug])
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', null = True)
+    category = models.ForeignKey(Category, related_name='products', null = True ,on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, null = True)
     image = models.ImageField(upload_to="posts/",blank = True, null = True)

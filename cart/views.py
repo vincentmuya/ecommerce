@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http  import HttpResponse
 from django.views.decorators.http import require_POST
 from app.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
-from django.urls import reverse
 
 @require_POST
 def cart_add(request, product_id):

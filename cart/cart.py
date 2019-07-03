@@ -49,7 +49,7 @@ class Cart(object):
         """
         product_ids = self.cart.keys()
         #get the product objects and add them to the cart
-        products = Product.objects.filter(id_in=product_ids)
+        products = Product.objects.filter(id__in=product_ids)
         for product in products:
             self.cart[str(product.id)]['product'] = product
 

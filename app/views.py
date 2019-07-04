@@ -55,11 +55,11 @@ def newitem(request):
 
 def search_results(request):
     item_categories = Category.objects.all()
-    if 'item_name' in request.GET and request.GET["item_name"]:
-        search_term = request.GET.get("item_name")
-        searched_ref = Item.search_by_item_name(search_term)
+    if 'name' in request.GET and request.GET["name"]:
+        search_term = request.GET.get("name")
+        searched_ref = Product.search_by_item_name(search_term)
         message = f"{search_term}"
-        return render(request, "search.html",{"message":message,"item_name":searched_ref, "item_categories":item_categories})
+        return render(request, "search.html",{"message":message,"name":searched_ref, "item_categories":item_categories})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message, "item_categories":item_categories})

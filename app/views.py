@@ -31,6 +31,7 @@ def new_item(request):
     current_user = request.user
     if request.method == 'POST':
         form = NewItemForm(request.POST,request.FILES)
+        slug = name.replace(' ','-')
         if form.is_valid():
             item = form.save(commit=False)
             item.seller = current_user

@@ -36,17 +36,17 @@
       <h4 span style="text-align:center;">Menu</h4>
       {% if user.is_authenticated %}
 <ul class="" role="menu">
+  <li><div id="subheader">
+    <div class="cart"> Your cart is empty.</div>
+</div></li>
 <li>
   <a href="{%url 'product_list'%}"><span class="glyphicon glyphicon-home"></span> Home</a>
 </li>
 <li>
-  <a href="{%url 'cart:cart_detail'%}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+  <a href="{%url 'profile' user.id%}"><span class="glyphicon glyphicon-user"></span> Profile</a>
 </li>
 <li>
   <a href="{%url 'new-item' %}"><span class="glyphicon glyphicon-plus"></span> Post</a>
-</li>
-<li>
-  <a href="{%url 'profile' user.id%}"><span class="glyphicon glyphicon-user"></span> Profile</a>
 </li>
 <li>
   <a href="{%url 'update-profile' user.id%}"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a>

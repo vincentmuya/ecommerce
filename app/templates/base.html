@@ -22,8 +22,8 @@
   <body>
 
     {%block content %}
-    <div  id="sidenav">
     <h5 id="cat">Categories:</h5>
+    <div  id="sidenav">
     <ul>
       <li {% if not category %}class="selected"{% endif %}><a href="{% url "product_list" %}">All</a></li>
       {% for c in categories %}

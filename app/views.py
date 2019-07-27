@@ -57,7 +57,7 @@ def search_results(request):
     item_categories = Category.objects.all()
     if 'name' in request.GET and request.GET["name"]:
         search_term = request.GET.get("name")
-        searched_ref = Product.search_by_item_name(search_term)
+        searched_ref = Product.search_by_name(search_term)
         message = f"{search_term}"
         return render(request, "search.html",{"message":message,"name":searched_ref, "item_categories":item_categories})
     else:

@@ -46,7 +46,7 @@ class Product(models.Model):
 
     @classmethod
     def search_by_name(cls,search_term):
-        search_result = Product.objects.filter(name__icontains=search_term)
+        search_result = cls.objects.filter(name__icontains=search_term)
         return search_result
 
 class Profile(models.Model):

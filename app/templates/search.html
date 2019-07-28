@@ -18,19 +18,19 @@
       <div class="col-md-2">
       </div>
       <div class="col-md-8">
-        {% if item_name%}
-          <h2>Found {{ item_name|length }} of searched term {{message}}</h2>
+        {% if name%}
+          <h2>Found {{ name|length }} of searched term {{message}}</h2>
         {% else %}
-          <h2> Found 0 item_name for the search term {{message}}</h2>
+          <h2> Found 0 name for the search term {{message}}</h2>
         {% endif %}
 
-      {% if item_name %}
-        {% for result in item_name%}
+      {% if name %}
+        {% for result in name%}
       <div class="card" id="block" style="width: 18rem;">
         <a href="{%url 'index'%}item/{{result.pk}}"><img class="card-img-top" src="{{ result.item_image.url}}" alt="Card image cap"></a>
         <div class="card-body">
-          <h4 class="card-title">{{result.item_name}}</h4>
-          <p class="card-text">Ksh {{result.item_price}}/=</p>
+          <h4 class="card-title">{{result.name}}</h4>
+          <p class="card-text">Ksh {{result.price}}/=</p>
         </div>
       </div>
         {% endfor %}

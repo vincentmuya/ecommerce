@@ -28,7 +28,7 @@
       {% if name %}
         {% for result in name%}
       <div class="card" id="block" style="width: 18rem;">
-        <a href="{%url 'index'%}item/{{result.pk}}"><img class="card-img-top" src="{{ result.item_image.url}}" alt="Card image cap"></a>
+        <a href="{%url 'product_list'%}item/{{result.pk}}"><img class="card-img-top" src="{{ result.image.url}}" alt="Card image cap"></a>
         <div class="card-body">
           <h4 class="card-title">{{result.name}}</h4>
           <p class="card-text">Ksh {{result.price}}/=</p>

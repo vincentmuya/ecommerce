@@ -23,6 +23,7 @@ class Category(models.Model):
         return reverse('product_list_by_category',args=[self.slug])
 
 class Product(models.Model):
+    seller = models.ForeignKey(User, null = True,on_delete=models.DO_NOTHING,)
     category = models.ForeignKey(Category, related_name='products', null = True ,on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, null = True)

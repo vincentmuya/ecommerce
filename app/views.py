@@ -73,7 +73,7 @@ def category_items(request, pk):
 def profile(request, user_id):
     profile = Profile.objects.filter(user_id=request.user.id)
     item_categories = Category.objects.all()
-    # user_posts = Product.objects.filter(seller_id=request.user).order_by('created_date')[::-1]
+    user_posts = Product.objects.filter(seller_id=request.user).order_by('created')[::-1]
 
 
     return render(request, "profile.html", {"profile": profile, "item_categories":item_categories})

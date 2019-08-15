@@ -12,7 +12,7 @@ urlpatterns=[
     # url(r'^category/(?P<pk>\d+)/$', views.category_items, name='category_items'),
     url(r'^edit/profile/(\d+)$', views.update_profile, name='update-profile'),
     url(r'^profile/(\d+)$', views.profile, name ='profile'),
-    url(r'^ajax/newitem/$', views.newitem, name='newitem'),
+    # url(r'^ajax/newitem/$', views.newitem, name='newitem'),
 ]
 
 if settings.DEBUG:

@@ -59,7 +59,7 @@
       {%endfor%}
       {%for post_item in user_posts%}
       <div class="card" id="block" style="width: 18rem;">
-        <a href="{{post_item.pk}}"><img class="card-img-top" src="{{ post_item.image.url}}" alt="Card image cap"></a>
+        <a href="{{ post_item.get_absolute_url }}"><img class="card-img-top" src="{% if post_item.image %}{{ post_item.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Card image cap"></a>
         <div class="card-body">
           <h4 class="card-title">{{post_item.name}}</h4>
           <p class="card-text">Ksh {{post_item.price}}/=</p>

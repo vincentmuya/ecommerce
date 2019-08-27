@@ -27,7 +27,7 @@ def product_detail(request, id, slug):
 
 @login_required(login_url='/accounts/login')
 def new_item(request):
-    item_categories = Category.objects.all()
+    categories = Category.objects.all()
     current_user = request.user
     if request.method == 'POST':
         form = NewItemForm(request.POST,request.FILES)
@@ -37,7 +37,7 @@ def new_item(request):
             item.save()
     else:
         form =NewItemForm()
-    return render (request, 'new_item.html', {"form":form, "item_categories":item_categories})
+    return render (request, 'new_item.html', {"form":form, "categories":categories})
 
 # def newitem(request):
 #         seller_number = request.POST.get('seller_number')

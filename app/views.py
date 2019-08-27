@@ -76,7 +76,7 @@ def profile(request, user_id):
     user_posts = Product.objects.filter(seller_id=request.user).order_by('created')[::-1]
 
 
-    return render(request, "profile.html", {"profile": profile, "item_categories":item_categories})
+    return render(request, "profile.html", {"profile": profile, "item_categories":item_categories, "user_posts":user_posts})
 
 @login_required
 @transaction.atomic

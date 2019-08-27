@@ -81,7 +81,7 @@ def profile(request, user_id):
 @login_required
 @transaction.atomic
 def update_profile(request, user_id):
-    item_categories = Category.objects.all()
+    categories = Category.objects.all()
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -95,5 +95,5 @@ def update_profile(request, user_id):
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, 'edit_profile.html', {
         'user_form': user_form,
-        'profile_form': profile_form, "item_categories":item_categories
+        'profile_form': profile_form, "categories":categories
     })

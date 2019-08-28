@@ -54,20 +54,15 @@ def new_item(request):
 #         return JsonResponse(data)
 
 def search_results(request):
-    item_categories = Category.objects.all()
+    categories = Category.objects.all()
     if 'name' in request.GET and request.GET["name"]:
         search_term = request.GET.get("name")
         searched_ref = Product.search_by_name(search_term)
         message = f"{search_term}"
-        return render(request, "search.html",{"message":message,"name":searched_ref, "item_categories":item_categories})
+        return render(request, "search.html",{"message":message,"name":searched_ref, "categories":categories})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message, "item_categories":item_categories})
-
-def category_items(request, pk):
-    item_categories = Category.objects.all()
-    cat_item = Item.objects.filter(category__pk=pk)
-    return render(request, "category.html",{"cat_item":cat_item, "item_categories":item_categories})
 
 @login_required(login_url='/accounts/login')
 def profile(request, user_id):

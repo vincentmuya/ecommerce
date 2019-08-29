@@ -64,6 +64,10 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message, "item_categories":item_categories})
 
+def posted_by_seller(request, user_id):
+    sell_product = Product.objects.filter(seller_id=request.user)
+    return render(request, 'seller_product.html', {'sell_product':sell_product})
+
 @login_required(login_url='/accounts/login')
 def profile(request, user_id):
     profile = Profile.objects.filter(user_id=request.user.id)

@@ -65,8 +65,8 @@ def search_results(request):
         return render(request, 'search.html',{"message":message, "item_categories":item_categories})
 
 def posted_by_seller(request, user_id):
-    sell_product = Product.objects.filter(seller_id=request.user)
-    return render(request, 'seller_product.html', {'sell_product':sell_product})
+    user_posts = Product.objects.filter(seller_id=request.user).order_by('created')[::-1]
+    return render(request, 'seller_product.html', {"user_posts":user_posts})
 
 @login_required(login_url='/accounts/login')
 def profile(request, user_id):

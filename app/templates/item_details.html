@@ -24,17 +24,18 @@
    <div class="card" style="width: 55rem;">
    <img class="img-details" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Card image cap">
      <div class="card-body">
+       <h4 class="card-text">Product: <strong>{{product.name}}</strong></h4>
        <h4 class="card-title">Category: <strong><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></strong></h4>
        <h4 class="card-text">Price: <strong>Ksh{{ product.price }}/=</strong></h4>
-       <h4 class="card-text">Description: <strong>{{ product.description|linebreaks }}</strong></h4>
+       <h4 class="card-text">Description: <strong>{{ product.description }}</strong></h4>
       <h4 class="card-text">Seller: <strong><a href="̌{%url 'profile' user.id%}">{{product.seller}}</a></strong></h4>
+       <h4 class="card-text">Seller Location: <strong>{{item.seller_location}}</strong></h4>
+       <h4 class="card-text">Posted: <strong>{{product.created}}</strong></h4>
        <h4><form action="{% url "cart:cart_add" product.id %}" method="post" enctype="multipart/form-data">
          {{ cart_product_form }}
          {% csrf_token %}
          <input type="submit" value="Add to cart">
        </form></h4>
-       <h4 class="card-text">Seller Location: <strong>{{item.seller_location}}</strong></h4>
-       <h4 class="card-text">Posted: <strong>{{product.created}}</strong></h4>
      </div>
    </div>
  </div>

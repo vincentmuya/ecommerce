@@ -70,18 +70,7 @@ def posted_by_seller(request, user_id):
 
 @login_required(login_url='/accounts/login')
 def profile(request, user_id):
-    # If no such user exists raise 404
-    try:
-        profile = Profile.objects.get(user_id=user_id)
-    except:
-        raise Http404
-
-    # Flag that determines if we should show editable elements in template
-    editable = False
-    # Handling non authenticated user for obvious reasons
-    if request.profile.is_authenticated() and request.profile == profile:
-        editable = True
-    # profile = Profile.objects.filter(user_id=request.user.id)
+    profile = Profile.objects.filter(user_id=request.user.id)
     categories = Category.objects.all()
     user_posts = Product.objects.filter(seller_id=request.user).order_by('created')[::-1]
 

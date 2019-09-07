@@ -5,7 +5,7 @@ class NewItemForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        exclude = ['seller', 'created_date', 'published_date']
+        exclude = ['seller', 'created_date', 'published_date', 'slug']
         widgets = {
         }
 class UserForm(forms.ModelForm):

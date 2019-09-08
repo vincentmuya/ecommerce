@@ -34,6 +34,10 @@ LOGOUT_REDIRECT_URL = '/'
 
 CART_SESSION_ID = 'cart'
 
+CHAT_WS_SERVER_HOST = 'localhost'
+CHAT_WS_SERVER_PORT = 5002
+CHAT_WS_SERVER_PROTOCOL = 'ws'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     'googlemaps',
     'tinymce',
     'bootstrap3',
+    'django_private_chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.auth import views
 from django.contrib.auth.views import logout
+from django_private_chat import urls as django_private_chat_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     url(r'^accounts/',include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^', include('django_private_chat.urls')),
 ]

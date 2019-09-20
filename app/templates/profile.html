@@ -27,8 +27,6 @@
         </div>
         <div class="col-md-8">
           {%for profile_item in profile%}
-      <h2>{{profile_item.user}}</h2>
-
       <div class="col-lg-15 col-sm-15">
         <div class="card hovercard">
           <div class="card-background">
@@ -106,7 +104,7 @@
     }
 
     .card.hovercard .card-background {
-      height: 130px;
+      height: 200px;
     }
 
     .card-background img {
@@ -130,8 +128,8 @@
     .card.hovercard .useravatar img {
       width: 200px;
       height: 200px;
-      max-width: 100px;
-      max-height: 100px;
+      max-width: 175px;
+      max-height: 175px;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
@@ -147,8 +145,10 @@
 
     .card.hovercard .card-info .card-title {
       padding: 0 5px;
-      font-size: 20px;
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      font-size: 25px;
       line-height: 1;
+      background-color: white;
       color: #262626;
       background-color: rgba(255, 255, 255, 0.1);
       -webkit-border-radius: 4px;

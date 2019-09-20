@@ -52,10 +52,11 @@
                                 </form>
                             </td>
                             <td>
-                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                              <button type="button" class="btn btn-success" name="button"><a href="/dialogs/{{product.seller}}">Order</a></button>
+                                <button type="button" class="btn btn-warning" name="button"><a href="{% url "cart:cart_remove" product.id %}">Remove</a></button>
                             </td>
-                            <td>kshs. {{ item.price }}</td>
-                            <td>kshs. {{ item.total_price }}</td>
+                            <td>kshs. {{ item.price }}/=</td>
+                            <td>kshs. {{ item.total_price }}/=</td>
                         </tr>
                     {% endwith %}
                 {% endfor %}

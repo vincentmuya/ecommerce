@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Profile, Subcategory
+from .models import Product, Category, Profile
 
 # class CategoryAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'slug']
@@ -17,4 +17,3 @@ from .models import Product, Category, Profile, Subcategory
 admin.site.register(Product)
 admin.site.register(Category)
 admin.site.register(Profile)
-admin.site.register(Subcategory)

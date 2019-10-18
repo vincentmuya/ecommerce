@@ -9,6 +9,21 @@ from slugify import slugify
 
 
 # Create your models here.
+class Subcategory(models.Model):
+    name = models.CharField(max_length=200,db_index=True, null = True)
+    slug = models.SlugField(max_length=200,db_index=True, unique=True, null = True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'subcategory'
+        verbose_name_plural = 'subcategories'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('product_list_by_subcategory',args=[self.slug])
+
 class Category(models.Model):
     name = models.CharField(max_length=200,db_index=True, null = True)
     slug = models.SlugField(max_length=200,db_index=True, unique=True, null = True)

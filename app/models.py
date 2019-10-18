@@ -27,7 +27,7 @@ class Subcategory(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=200,db_index=True, null = True)
     slug = models.SlugField(max_length=200,db_index=True, unique=True, null = True)
-    subcategory = models.ForeignKey(Subcategory, related_name='products', null = True ,on_delete=models.CASCADE)
+    subcategory = models.ManyToManyField(Subcategory)
 
     class Meta:
         ordering = ('name',)
@@ -43,6 +43,7 @@ class Category(models.Model):
 class Product(models.Model):
     seller = models.ForeignKey(User, null = True,on_delete=models.DO_NOTHING,)
     category = models.ForeignKey(Category, related_name='products', null = True ,on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(Subcategory, null = True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, null = True)
     image = models.ImageField(upload_to="posts/",blank = True, null = True)

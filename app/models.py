@@ -27,6 +27,7 @@ class Subcategory(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=200,db_index=True, null = True)
     slug = models.SlugField(max_length=200,db_index=True, unique=True, null = True)
+    subcategory = models.ForeignKey(Subcategory, related_name='products', null = True ,on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('name',)

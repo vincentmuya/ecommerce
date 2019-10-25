@@ -93,7 +93,7 @@ def posted_by_seller(request, user_id):
     return render(request, 'seller_product.html', {"user_posts":user_posts})
 
 @login_required(login_url='/accounts/login')
-def profile(request, user_id):
+def profile(request, username):
     profile = Profile.objects.filter(user_id=request.user.id)
     categories = Category.objects.all()
     user_posts = Product.objects.filter(seller_id=request.user).order_by('created')[::-1]

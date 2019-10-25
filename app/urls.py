@@ -10,7 +10,7 @@ urlpatterns=[
     url(r'^new/item$', views.new_item, name='new-item'),
     url(r'^search$', views.search_results, name='search_results'),
     url(r'^edit/profile/(\d+)$', views.update_profile, name='update-profile'),
-    url(r'^profile/(\d+)$', views.profile, name ='profile'),
+    url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
     url(r'^products/seller/(\d+)$', views.posted_by_seller, name ='posted_by_seller'),
     # url(r'^ajax/newitem/$', views.newitem, name='newitem'),
 ]

@@ -6,8 +6,11 @@
   <html lang="en">
 
   <head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <meta charset="UTF-8">
-    <title>Twitter Card</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
@@ -56,7 +59,7 @@
       <h4>Items Posted By {{profile_item.user}}</h4>
       {%endfor%}
       {%for post_item in user_posts%}
-      <div class="card" id="block" style="width: 18rem;">
+      <div class="card" id="block">
         <a href="{{ post_item.get_absolute_url }}"><img class="card-img-top" src="{% if post_item.image %}{{ post_item.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Card image cap"></a>
         <div class="card-body">
           <h4 class="card-title">{{post_item.name}}</h4>
@@ -191,6 +194,15 @@
     }
     .card:hover {
         box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+    }
+    @media screen and (max-width:650px){
+      #block{
+        width:11rem
+      }
+      .card-img-top{
+        height: 90px;
+        width: 90px;
+      }
     }
   </style>
   {%endblock%}

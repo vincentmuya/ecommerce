@@ -6,14 +6,14 @@
 
 ## Description
 
-It is an ecommerce platform where a user can view, post, add to cart, view profile and message each other.
+It is an ecommerce platform where a user can view, post, add to cart, view profile, message each other and make a API call.
 
 ## Known Bugs
 
 No know bugs
 
 ## Technologies Used
--HTML. -CSS. -JavaScript. -Python. -Django.
+-HTML. -CSS. -JavaScript. -Python. -Django. -DjangoRestFramework
 
 ## Support and contact details
 

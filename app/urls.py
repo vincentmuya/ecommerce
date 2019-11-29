@@ -12,6 +12,7 @@ urlpatterns=[
     url(r'^edit/profile/(\d+)$', views.update_profile, name='update-profile'),
     url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
     url(r'^products/seller/(\d+)$', views.posted_by_seller, name ='posted_by_seller'),
+    url(r'^api/product/$', views.ProductList.as_view())
     # url(r'^ajax/newitem/$', views.newitem, name='newitem'),
 ]
 

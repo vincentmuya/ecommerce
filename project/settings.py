@@ -42,6 +42,7 @@ CHAT_WS_SERVER_PROTOCOL = 'ws'
 
 INSTALLED_APPS = [
     'app',
+    'rest_framework',
     'cart',
     'googlemaps',
     'tinymce',

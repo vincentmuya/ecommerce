@@ -24,9 +24,9 @@
   <body>
 
     {%block content %}
-    <h5 id="cat">Categories:</h5>
     <div  id="sidenav">
     <ul>
+        <h4 class="cate" style=" color:white;">Categories</h4>
       <li {% if not category %}class="selected"{% endif %}><a href="{% url "product_list" %}">All</a></li>
       {% for c in categories %}
       <li {% if category.slug == c.slug %}class="selected"{% endif %}><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
@@ -35,7 +35,7 @@
   </div>
 
     <div id="sidebar">
-      <h4 span style="text-align:center;">Menu</h4>
+      <h4 style="text-align:center; color:white;">Menu</h4>
       {% if user.is_authenticated %}
 <ul class="" role="menu">
   <!-- <li><div id="subheader">
@@ -94,7 +94,7 @@
   padding: 3px 5px 3px 13px;
   text-decoration: none;
   font-size: 15px;
-  color: #818181;
+  color: #2196F3;
   display: block;
 }
 
@@ -107,7 +107,7 @@
   z-index: 1;
   margin-top: 0px;
   left: 1150px;
-  background: #eee;
+  background: black;
   overflow-x: hidden;
   padding: 8px 0;
 }
@@ -133,7 +133,7 @@ h5{
 @media screen and (max-width:650px){
   #sidenav {
     margin-top: 40px;
-    height: 18%;
+    height: 20%;
     width: 64px;
     position: fixed;
     z-index: 1;
@@ -156,7 +156,9 @@ h5{
   #sidenav a:hover {
     color: #f1f1f1;
   }
-
+.cate{
+  font-size:10px;
+}
 }
 </style>
 

@@ -20,15 +20,15 @@
       </div>
       <div class="col-md-8">
         {% if name%}
-          <h2>Found {{ name|length }} of searched term {{message}}</h2>
+          <h2 style="text-align:center;" class="name">Found {{ name|length }} of searched term {{message}}</h2>
         {% else %}
-          <h2> Found 0 name for the search term {{message}}</h2>
+          <h2 style="text-align:center;" class="name"> Found 0 name for the search term {{message}}</h2>
         {% endif %}
 
       {% if name %}
         {% for result in name%}
       <div class="card" id="block" style="width: 18rem;">
-        <a href="{%url 'product_list'%}item/{{result.pk}}"><img class="card-img-top" src="{{ result.image.url}}" alt="Card image cap"></a>
+        <a href="{{ result.get_absolute_url }}"><img class="card-img-top" src="{{ result.image.url}}" alt="Card image cap"></a>
         <div class="card-body">
           <h4 class="card-title">{{result.name}}</h4>
           <p class="card-text">Ksh {{result.price}}/=</p>
@@ -47,6 +47,8 @@
 <style media="screen">
 body{
   margin-top: 5%;
+  color: white;
+  background-color: black;
 }
 #block {
   width: 100px;
@@ -63,6 +65,14 @@ body{
 
 .card:hover {
     box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+@media screen and (max-width:650px) {
+  body{
+    padding-top: 5%;
+  }
+.name{
+  font-size: 15px;
+}
 }
 </style>
   {%endblock%}

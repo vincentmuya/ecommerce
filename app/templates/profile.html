@@ -62,7 +62,7 @@
       <div class="card" id="block">
         <a href="{{ post_item.get_absolute_url }}"><img class="card-img-top" src="{% if post_item.image %}{{ post_item.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Card image cap"></a>
         <div class="card-body">
-          <h4 class="card-title">{{post_item.name}}</h4>
+          <h5 class="card-title">{{post_item.name}}</h5>
           <p class="card-text">Ksh {{post_item.price}}/=</p>
         </div>
       </div>
@@ -81,6 +81,8 @@
   <style media="screen">
   body{
     margin-top: 5%;
+    color: white;
+    background-color: black;
   }
     .card {
       margin-top: 20px;
@@ -176,8 +178,9 @@
       -webkit-border-radius: 0 !important;
     }
     #block {
-      width: 100px;
+      /* width: 100px; */
       float: left;
+      background-color: black;
     }
 
 
@@ -189,9 +192,9 @@
       height: 150px;
       width: 150px;
     }
-    .card-title{
+    /* .card-title{
     color: black;
-    }
+    } */
     .card:hover {
         box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
     }
